@@ -1,4 +1,11 @@
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
 body {
+  width: 100vw;
   margin: 0px;
   padding: 0px;
   font-family: "Titillium Web", sans-serif;
@@ -65,4 +72,70 @@ a:hover {
   padding: 150px;
   color: white;
   text-align: center;
+}
+
+#driversSection {
+  height: 100vh;
+  width: 100%;
+  padding: 12px;
+  /* padding-left: 10px; */
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+h3 {
+  height: 5vh;
+}
+
+#filterContainer {
+  height: 10vh;
+  display: flex;
+  gap: 80px;
+  /* background-color: aqua; */
+}
+
+.btn {
+  background-color: #e10600;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  width: 15%;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5); /* align-items: center; */
+  padding: 10px 20px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#driverCards {
+  background-color: white;
+  padding-top: 10px;
+  /* padding-left: 10px; */
+  height: 80vh;
+  width: 100%;
+}
+
+.individualCard {
+  background-color: white;
+  color: gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 40%;
+  width: 15%;
+}
+
+#driverCards p {
+  font-size: 8px;
+  margin: 0px;
+  text-align: center;
+}
+
+#driverCards button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
 }
