@@ -32,10 +32,26 @@
         </p>
       </div>
     </div>
-    <!-- <div id="driversSection">
-      <a name="drivers">Drivers</a>
+    <div id="driversSection">
+      <a name="drivers"></a>
+      <h3>Racing Drivers</h3>
+      <div id="filterContainer">
+        <button class="btn active" onclick="filterSelection('all')">All Drivers</button>
+        <button class="btn" onclick="filterSelection('american')">Americans</button>
+        <button class="btn" onclick="filterSelection('british')">Britts</button>
+      </div>
+      <div id="driverCards">
+        <div class="individualCard">
+          <img src="./images/lewis.jpg" alt="Lewis Hamilton" style="width: 100%" />
+          <p>Lewis Hamilton <span>44</span></p>
+          <p>Mercedes</p>
+          <p>British</p>
+          <p>Likes</p>
+          <button>Like</button>
+        </div>
+      </div>
     </div>
-    <div id="reviewSection">
+    <!-- <div id="reviewSection">
       <a name="review">Reviews</a>
     </div> -->
   </body>
