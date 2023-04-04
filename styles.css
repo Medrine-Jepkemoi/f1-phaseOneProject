@@ -1,16 +1,13 @@
 body {
-  height: 100vh;
-  width: 100vw;
   margin: 0px;
   padding: 0px;
   font-family: "Titillium Web", sans-serif;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
+  font-size: 12px;
+  overflow: scroll;
 }
 
 #navBar {
-  height: 10%;
+  height: 10vh;
   width: 100%;
   display: flex;
   background-color: black;
@@ -48,23 +45,24 @@ a:hover {
   color: #e10600;
   text-decoration: none;
 }
-/* a:visited{
-  color:purple;
-}
-a:hover{
-  color:orange;
-} */
 
-/* #navDetails {
-  color: white;
+#homeSection {
+  height: 90vh;
+  width: 100%;
   display: flex;
-  line-height: 2em;
-  padding: 0.5em 1em;
-  text-decoration: none;
+  background-color: antiquewhite;
+  background-image: url("./images/hamilton-ricciardo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.navDetailsContent {
-  list-style-type: none;
-  justify-content: right;
-  word-spacing: 10px;
-} */
+.f1Details {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+  color: white;
+  text-align: center;
+}
