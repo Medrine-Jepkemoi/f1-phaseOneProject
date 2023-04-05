@@ -1,31 +1,7 @@
-document.addEventListener("DOMContentLoaded", async (e) => {
-  console.log("Welcome to my website");
-
-  // const slideshow = document.querySelector()
-  //   var i = 0;
-  //   var images = [];
-  //   var time = 1000;
-
-  //   images[0] = "./images/lewis.jpg";
-  //   images[1] = "./images/homeImage.jpg";
-
-  //   function changeImage() {
-  //     document.slide.src = images[i];
-  //     if (i < images.length - 1) {
-  //       i++;
-  //     } else {
-  //       i = 0;
-  //     }
-
-  //     setTimeout("changeImage()", time);
-  //   }
-
-  //   window.onload = changeImage;
-
-  //rendering f1 drivers details on the drivers section
-  function renderDriverInfo(driver) {
-    const drivers = document.querySelector("#driverCards");
-    drivers.innerHTML += `
+//rendering f1 drivers details on the drivers section
+function renderDriverInfo(driver) {
+  const drivers = document.querySelector("#driverCards");
+  drivers.innerHTML += `
       <div class="individualCard">
           <div class="image" data-item="${driver.nationality}">
             <img src="${driver.url}" alt="Lewis Hamilton">
@@ -44,9 +20,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
           </div>
         </div>
         `;
-  }
-
-  function filterNationality(nationality) {}
+}
+document.addEventListener("DOMContentLoaded", async (e) => {
+  console.log("Welcome to my website");
 
   //fetching the data
   let data = await fetch("http://localhost:3000/Drivers");
@@ -74,3 +50,21 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     });
   });
 });
+
+async function filterSelection(nationality) {
+  let data = await fetch("http://localhost:3000/Drivers");
+  data = await data.json();
+  const drivers = document.querySelector("#driverCards");
+  drivers.innerHTML = "";
+  if (nationality === "all") {
+    data.forEach((driver) => renderDriverInfo(driver));
+    return;
+  }
+  let filter = data.filter((driver) => {
+    if (driver.nationality.toLowerCase() === nationality.toLowerCase()) {
+      return driver;
+    }
+  });
+
+  filter.forEach((driver) => renderDriverInfo(driver));
+}
