@@ -157,11 +157,11 @@ h3 {
   height: 80%;
   background: black;
   transition: 0.5s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* transform-origin: left; */
   transform: perspective(2000px) rotateY(-90deg);
   padding: 20px;
   text-align: justify;
-  /* background: #fff; */
   position: absolute;
   top: 40%;
   transform: translateX(-100%);
@@ -172,7 +172,7 @@ h3 {
   transform: perspective(2000px) rotateY(0deg);
 }
 
-.individualCard .moreDriverDetails button {
+.individualCard .image p button {
   background-color: #e10600;
   color: black;
   border: none;
@@ -196,10 +196,11 @@ h3 {
 } */
 
 #reviewSection {
-  /* background-color: #e10600; */
-  height: 50vh;
+  background-color: #d0c3c38d;
+  height: 40vh;
   width: 100%;
   display: flex;
+  padding: 15px;
 }
 
 #review {
