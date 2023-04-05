@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   console.log("Welcome to my website");
 
+  //rendering f1 drivers details on the drivers section
   function renderDriverInfo(driver) {
     const drivers = document.querySelector("#driverCards");
     drivers.innerHTML += `
@@ -12,7 +13,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
               <p>${driver.team}</p>
               <p>${driver.permanentNumber}</p>
               <p>${driver.nationality}</p>
-              <p><button>Like</button> ${driver.likes} likes</p>
+              <button id = "likeBtn">Like</button>
+              <p class="updateLikes">Likes: ${driver.likes}</p>
 
             </div>
           </div>
@@ -21,9 +23,26 @@ document.addEventListener("DOMContentLoaded", (e) => {
           </div>
         </div>
         `;
+
+    //liking a driver
+    const like = document.querySelector("#likeBtn");
+    like.addEventListener("click", () => {
+      driver.likes = driver.likes + 1;
+      document.querySelector(".updateLikes").innerHTML = `Likes: ${driver.likes}`;
+
+      fetch(`http://localhost:3000/Drivers/${driver.driverId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(driver),
+      })
+        .then((res) => res.json())
+        .then((driver) => alert(driver.likes));
+    });
   }
 
-  //fetchingg the data
+  //fetching the data
   fetch("http://localhost:3000/Drivers")
     .then((res) => res.json())
 
@@ -33,4 +52,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
         renderDriverInfo(driver);
       })
     );
+
+  //   patching/updating likes
+  //   function updateLikes(data) {
+  //     fetch(`http://localhost:3000/Drivers/${data.driverId}`, {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((driver) => console.log(driver));
+  //   }
 });

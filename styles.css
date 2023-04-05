@@ -172,7 +172,7 @@ h3 {
   transform: perspective(2000px) rotateY(0deg);
 }
 
-.individualCard .image p button {
+.individualCard .image button {
   background-color: #e10600;
   color: black;
   border: none;
