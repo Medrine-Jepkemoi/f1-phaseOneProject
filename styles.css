@@ -150,6 +150,7 @@ h3 {
 }
 
 .individualCard .moreDriverDetails {
+  /* display: none; */
   position: absolute;
   top: 0;
   left: 0;
@@ -196,11 +197,16 @@ h3 {
 } */
 
 #reviewSection {
-  background-color: #d0c3c38d;
+  background-color: white;
   height: 40vh;
   width: 100%;
-  display: flex;
+
   padding: 15px;
+}
+
+#entireSection {
+  background-color: #d0c3c38d;
+  display: flex;
 }
 
 #review {
