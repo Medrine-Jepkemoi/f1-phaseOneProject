@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", async (e) => {
   console.log("Welcome to my website");
 
   // const slideshow = document.querySelector()
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
               <p>${driver.team}</p>
               <p>${driver.permanentNumber}</p>
               <p>${driver.nationality}</p>
-              <button id =${driver.id}>Like</button>
+              <button id ="likes" class=${driver.id}>Like</button>
               <p class="updateLikes">Likes: ${driver.likes}</p>
 
             </div>
@@ -44,52 +44,33 @@ document.addEventListener("DOMContentLoaded", (e) => {
           </div>
         </div>
         `;
+  }
 
-    //liking a driver
-    const like = document.querySelector(`#${driver.id}`);
+  function filterNationality(nationality) {}
 
-    like.addEventListener("click", () => {
-      console.log("I was clicked");
-      driver.likes = driver.likes + 1;
-      console.log(driver.likes);
-      document.querySelector(".updateLikes").innerHTML = `Likes: ${driver.likes}`;
+  //fetching the data
+  let data = await fetch("http://localhost:3000/Drivers");
+  data = await data.json();
+  data.forEach((driver) => renderDriverInfo(driver));
 
-      console.log(driver);
+  let likeBtn = document.querySelectorAll("#likes");
 
-      fetch(`http://localhost:3000/Drivers/${driver.id}`, {
+  likeBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      let driverId = e.target.className;
+      let likes = e.target.nextElementSibling;
+      let likesNum = parseInt(likes.innerText.split(" ")[1]);
+      likesNum++;
+      likes.innerText = `Likes: ${likesNum}`;
+      fetch(`http://localhost:3000/Drivers/${driverId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(driver),
+        body: JSON.stringify({ likes: likesNum }),
       })
         .then((res) => res.json())
-        .then((driver) => alert(driver));
+        .then((driver) => console.log(driver));
     });
-    console.log(like);
-  }
-
-  //fetching the data
-  fetch("http://localhost:3000/Drivers")
-    .then((res) => res.json())
-
-    //populating drivers indo
-    .then((data) =>
-      data.forEach((driver) => {
-        renderDriverInfo(driver);
-      })
-    );
-
-  //   patching/updating likes
-  //   function updateLikes(data) {
-  //     fetch(`http://localhost:3000/Drivers/${data.driverId}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((driver) => console.log(driver));
-  //   }
+  });
 });
