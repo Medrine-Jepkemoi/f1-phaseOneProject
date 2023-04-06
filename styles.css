@@ -200,19 +200,32 @@ h3 {
   background-color: white;
   height: 40vh;
   width: 100%;
-
-  padding: 15px;
+  padding: 25px;
+  /* display: flex; */
 }
 
 #entireSection {
-  background-color: #d0c3c38d;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.288);
+  /* opacity: 0.5; */
+  padding: 10px;
   display: flex;
 }
 
-form {
+#write {
   width: 50%;
 }
 
-#displayedReview {
+/* #displayedReview {
   width: 50%;
+} */
+
+#comment {
+}
+#submitReview {
+  background-color: #e10600;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  width: 40%;
 }

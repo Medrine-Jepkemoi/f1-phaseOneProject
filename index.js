@@ -68,3 +68,71 @@ async function filterSelection(nationality) {
 
   filter.forEach((driver) => renderDriverInfo(driver));
 }
+
+//reviewing drivers
+let review = document.querySelector("#submitReview");
+
+review.onclick = function (e) {
+  // e.preventdefault();
+  let userInput = document.querySelector("#write form textarea").value;
+  document.querySelector("#displayedReview").innerHTML += `
+         <div id="task">    
+           <span> ${userInput} </span> 
+        </div>
+        `;
+};
+// review.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   console.log("Submit");
+
+//   displayReview();
+// });
+
+// function displayReview() {
+//   const reviewList = document.createElement("ul");
+//   reviewList.innerHTML = `
+//   <li></li>
+//   `;
+// }
+
+// let addBtn = document.querySelector('#addBtn');
+
+// addBtn.onclick = function(){
+//   document.querySelector('#displayedReview').innerHTML += `
+//          <div id="task">
+//            <span> ${userInput} </span>
+//         </div>
+//         `;
+
+// }
+//     let userInput =  document.querySelector('#newtask input').value;
+
+//     //validation
+//     if( userInput === ""){
+//         alert("Please enter a task");
+//     }
+//     else{
+
+//        // console.log(userInput);
+//         //id => tasks
+
+//         document.querySelector('#tasks').innerHTML += `
+//          <div id="task">
+//            <span> ${userInput} </span>
+//            <button class="done">Done </button>
+//         </div>
+//         `;
+
+//         let doneTaskBtn = document.querySelectorAll('.done');
+
+//         for (let i=0; i<doneTaskBtn.length; i++){
+
+//             doneTaskBtn[i].onclick = function(){
+//                 doneTaskBtn[i].parentNode.style.textDecoration = "line-through";
+//             }
+
+//         }
+
+//     }
+
+// }
