@@ -15,6 +15,7 @@
   <body>
     <nav id="navBar">
       <img src="./images/logo.jpg" alt="f1 logo" id="f1Logo" />
+      <p>Interacto FormulaUno</p>
       <ul>
         <li class="navDetails"><a href="#home">Home</a></li>
         <li class="navDetails"><a href="#drivers">Drivers</a></li>
@@ -34,11 +35,14 @@
     </div>
     <div id="driversSection">
       <a name="drivers"></a>
-      <h3>Racing Drivers</h3>
+      <h3>View Details Of Drivers Based On Nationality</h3>
       <div id="filterContainer">
         <button class="btn active" onclick="filterSelection('all')">All Drivers</button>
-        <button class="btn" onclick="filterSelection('american')">Americans</button>
         <button class="btn" onclick="filterSelection('british')">Britts</button>
+        <button class="btn" onclick="filterSelection('dutch')">Dutch</button>
+        <button class="btn" onclick="filterSelection('spanish')">Spanish</button>
+        <button class="btn" onclick="filterSelection('american')">Americans</button>
+        <!-- <button class="btn active" onclick="filterSelection('others')">Others</button> -->
       </div>
 
       <div id="driverCards"></div>
@@ -58,6 +62,11 @@
         <div id="displayedReview"></div>
       </div>
     </div>
+
+    <footer>
+      <img src="./images//f1logo2.png" alt="f1 logo" />
+      <p>© 2003-2023 Formula One World Championship Limited</p>
+    </footer>
 
     <script src="index.js"></script>
   </body>
