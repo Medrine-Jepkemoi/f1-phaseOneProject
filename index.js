@@ -6,9 +6,8 @@ function renderDriverInfo(driver) {
           <div class="image" data-item="${driver.nationality}">
             <img src="${driver.url}" alt="Lewis Hamilton">
             <div id="driverDetails">
-              <h3>${driver.givenName} ${driver.familyName}</h3>
+              <h3>${driver.givenName} ${driver.familyName} - ${driver.permanentNumber}</h3>
               <p>${driver.team}</p>
-              <p>${driver.permanentNumber}</p>
               <p>${driver.nationality}</p>
               <button id ="likes" class=${driver.id}>Like</button>
               <p class="updateLikes">Likes: ${driver.likes}</p>
@@ -73,12 +72,23 @@ async function filterSelection(nationality) {
 //reviewing drivers
 let review = document.querySelector("#submitReview");
 
-review.onclick = function (e) {
-  e.preventdefault();
+review.addEventListener("click", (e) => {
+  e.preventDefault();
   let userInput = document.querySelector("#write form textarea").value;
   document.querySelector("#displayedReview").innerHTML += `
          <div id="task">    
            <span> ${userInput} </span> 
         </div>
         `;
-};
+  reset;
+});
+
+// review.onclick = function (e) {
+//   // e.preventdefault();
+//   let userInput = document.querySelector("#write form textarea").value;
+//   document.querySelector("#displayedReview").innerHTML += `
+//          <div id="task">
+//            <span> ${userInput} </span>
+//         </div>
+//         `;
+// };
