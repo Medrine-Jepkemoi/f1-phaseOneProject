@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   console.log("Welcome to my website");
 
   //fetching the data
-  let data = await fetch("https://b3db-102-216-85-5.ngrok.io/Drivers");
+  let data = await fetch("https://60e2-41-90-187-96.eu.ngrok.io/Drivers");
   data = await data.json();
   data.forEach((driver) => renderDriverInfo(driver));
 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       let likesNum = parseInt(likes.innerText.split(" ")[1]);
       likesNum++;
       likes.innerText = `Likes: ${likesNum}`;
-      fetch(`https://b3db-102-216-85-5.ngrok.io/Drivers/${driverId}`, {
+      fetch(`https://60e2-41-90-187-96.eu.ngrok.io/Drivers/${driverId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
 //filter drivers based on nationality
 async function filterSelection(nationality) {
-  let data = await fetch("https://b3db-102-216-85-5.ngrok.io/Drivers");
+  let data = await fetch("https://60e2-41-90-187-96.eu.ngrok.io/Drivers");
   data = await data.json();
   const drivers = document.querySelector("#driverCards");
   drivers.innerHTML = "";
