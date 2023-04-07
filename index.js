@@ -24,9 +24,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   console.log("Welcome to my website");
 
   //fetching the data
-  let data = await fetch("https://60e2-41-90-187-96.eu.ngrok.io/Drivers");
+  let data = await fetch("./db.json");
   data = await data.json();
-  data.forEach((driver) => renderDriverInfo(driver));
+  console.log(data.Drivers);
+  data.Drivers.forEach((driver) => renderDriverInfo(driver));
 
   let likeBtn = document.querySelectorAll("#likes");
 
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       let likesNum = parseInt(likes.innerText.split(" ")[1]);
       likesNum++;
       likes.innerText = `Likes: ${likesNum}`;
-      fetch(`https://60e2-41-90-187-96.eu.ngrok.io/Drivers/${driverId}`, {
+      fetch(`./db.json/${driverId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -52,15 +53,15 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
 //filter drivers based on nationality
 async function filterSelection(nationality) {
-  let data = await fetch("https://60e2-41-90-187-96.eu.ngrok.io/Drivers");
+  let data = await fetch("./db.json");
   data = await data.json();
   const drivers = document.querySelector("#driverCards");
   drivers.innerHTML = "";
   if (nationality === "all") {
-    data.forEach((driver) => renderDriverInfo(driver));
+    data.Drivers.forEach((driver) => renderDriverInfo(driver));
     return;
   }
-  let filter = data.filter((driver) => {
+  let filter = data.Drivers.filter((driver) => {
     if (driver.nationality.toLowerCase() === nationality.toLowerCase()) {
       return driver;
     }
