@@ -3,7 +3,7 @@
 #### About
 
 This is a one page website that will allow Formula One fans to know more about their favourite drivers, rate and review them.
-[Link to my website:](https://medrine-jepkemoi.github.io/f1-phaseOneProject/)
+[Link to my website:](https://react-wk1-code-challenge.vercel.app/)
 
 ## Description
 
